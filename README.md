@@ -15,7 +15,7 @@ This project implements a genetic algorithm to optimize drone routes for surveyi
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/seu-usuario/drone-route-optimizer.git
+git clone https://github.com/PauloGrunte/drone-route-optimizer.git
 cd drone-route-optimizer
 
 # Create virtual environment
