@@ -1,4 +1,3 @@
-# drone_optimizer/csv_exporter.py
 import pandas as pd
 from .route_calculator import RouteCalculator
 
@@ -38,7 +37,7 @@ def export_solution(best_solution, file_path):
         
         # Determinar se há pouso
         needs_recharge = (energy_consumption + best_solution.drone.stop_penalty > current_battery)
-        pouso = "SIM" if (needs_recharge or best_solution.recharges[i]) else "NÃO"
+        pouso = "SIM" if (needs_recharge or best_solution.recharges[i]) else "NAO"
         
         # Calcular hora final
         end_time_seconds = current_time + flight_time + best_solution.drone.stop_penalty

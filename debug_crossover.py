@@ -42,10 +42,10 @@ def test_crossover():
         assert child1.route[-1]['cep'] == '82821020', "Não termina no Unibrasil"
         assert None not in child1.route, "Há None na rota"
         
-        print("✅ Todas as verificações passaram!")
+        print("Todas as verificações passaram!")
         
     except Exception as e:
-        print(f"❌ Erro no crossover: {e}")
+        print(f"Erro no crossover: {e}")
         import traceback
         traceback.print_exc()
 

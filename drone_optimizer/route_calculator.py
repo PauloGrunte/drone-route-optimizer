@@ -1,4 +1,3 @@
-# drone_optimizer/route_calculator.py
 import math
 
 class RouteCalculator:

@@ -28,7 +28,6 @@ class Individual:
     
     def initialize_random(self):
         """Inicializa indivíduo com genes aleatórios"""
-        # Encontrar Unibrasil
         unibrasil = next((cep for cep in self.ceps if cep['cep'] == '82821020'), self.ceps[0])
         
         # Gerar rota aleatória (excluindo Unibrasil do meio)
@@ -57,7 +56,7 @@ class Individual:
             self._calculate_fitness()
             self.is_valid = True
         except Exception as e:
-            # print(f"Erro na avaliação: {e}")  # Descomente para debug
+            # print(f"Erro na avaliação: {e}")
             self.fitness = 0.0001
             self.is_valid = False
     
@@ -108,7 +107,7 @@ class Individual:
                 if current_time > late_penalty_time:
                     total_cost += self.drone.recharge_cost
                 
-                # Tempo de parada para recarga (considerar próximo dia se necessário)
+                # Tempo de parada para recarga
                 current_time += self.drone.stop_penalty
                 if current_time > max_day_time:
                     current_day += 1
@@ -239,7 +238,7 @@ class GeneticAlgorithm:
         if not all(isinstance(point, dict) for point in route1 + route2):
             return route1, route2  # Fallback para rotas originais
         
-        # Escolher pontos de corte (excluindo primeiro e último que são Unibrasil)
+        # Escolher pontos de corte (excluindo primeiro e último que são unibrasil)
         start, end = sorted(random.sample(range(1, size-1), 2))
         
         # Filho 1
