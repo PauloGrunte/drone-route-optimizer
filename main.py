@@ -19,19 +19,8 @@ def load_ceps_coordinates(file_path):
             })
         return ceps
     except FileNotFoundError:
-        print("Arquivo não encontrado. Usando dados de exemplo.")
-        return [
-            {'cep': '82821020', 'latitude': -25.548, 'longitude': -49.238},  # Unibrasil
-            {'cep': '80010010', 'latitude': -25.428, 'longitude': -49.267},
-            {'cep': '80020020', 'latitude': -25.435, 'longitude': -49.275},
-            {'cep': '80030030', 'latitude': -25.442, 'longitude': -49.283},
-            {'cep': '80040040', 'latitude': -25.449, 'longitude': -49.291},
-            {'cep': '80050050', 'latitude': -25.456, 'longitude': -49.299},
-            {'cep': '80060060', 'latitude': -25.463, 'longitude': -49.307},
-            {'cep': '80070070', 'latitude': -25.470, 'longitude': -49.315},
-            {'cep': '80080080', 'latitude': -25.477, 'longitude': -49.323},
-            {'cep': '80090090', 'latitude': -25.484, 'longitude': -49.331}
-        ]
+        print("Arquivo não encontrado")
+        return None
 
 def main():
     print("=== Otimizador de Rota para Drone UNIBRASIL Surveyor ===")
@@ -48,7 +37,9 @@ def main():
     
     print("Carregando coordenadas dos CEPs...")
     ceps = load_ceps_coordinates('data/ceps_coordinates.csv')
-    
+    if ceps is None:
+        print("Encerrando execução: dados necessários não encontrados.")
+        return
     print("Inicializando modelos...")
     weather = WeatherForecast()
     drone = Drone()
