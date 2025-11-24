@@ -115,5 +115,3 @@ def test_crossover_creates_valid_offspring(sample_ceps, sample_drone, sample_wea
         assert child.route[-1]['cep'] == '82821020'  # Termina no Unibrasil
         assert len(child.speeds) == len(child.route) - 1
         assert len(child.recharges) == len(child.route) - 1
-
-        #So Deus sabe como isso funciona
